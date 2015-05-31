@@ -1,0 +1,101 @@
+<link rel="stylesheet" type="text/css" href="css/style4.css?v=69">
+<div class="calc"><h1>Isaac Cheat Sheet</h1>
+<h2>Damage / DPS Calculator (Original Game)</h2>
+<div class="calc-main">
+	<div class="dmg">Tear Damage: <span id="dmg-val">3.50</span></div>
+	<div class="tps">
+    	Tears per second: <span id="tps-val">2.73</span>
+        <div class="delay">Delay: <span id="delay-val">10.00</span> Effective Delay: <span id="effective-val">11.00</span></div>
+    </div>
+    <div class="dps">Damage per second: <span id="dps-val">9.55</span></div>
+	
+    <div class="buttons">
+    	<div class="calc-full">
+        <h3>Damage Items</h3>
+            <div class="button"><img id="max" onclick="updateTotal('max', true)" src="images/items/4.png" alt="Max's Head"><div class="hoverDiv">Max's Head</div></div>
+            <div class="button"><img id="martyr" onclick="updateTotal('martyr', true)" src="images/items/7.png" alt="Blood of the Martyr"><div class="hoverDiv">Blood of the Martyr</div></div>
+            <div class="button"><img id="mushroom" onclick="updateTotal('mushroom', true)" src="images/items/12.png" alt="Magic Mushroom"><div class="hoverDiv">Magic Mushroom</div></div>
+            <div class="button"><img id="belial" onclick="updateTotal('belial', true)" src="images/items/34.png" alt="Book of Belial"><div class="hoverDiv">Book of Belial</div></div>
+            <div class="button"><img id="steven" onclick="updateTotal('steven', true)" src="images/items/50.png" alt="Steven"><div class="hoverDiv">Steven</div></div>
+            <div class="button"><img id="pentagram" onclick="updateTotal('pentagram', true)" src="images/items/51.png" alt="Pentagram"><div class="hoverDiv">Pentagram</div></div>
+            <div class="button"><img id="hormones" onclick="updateTotal('hormones', true)" src="images/items/70.png" alt="Growth Hormones"><div class="hoverDiv">Growth Hormones</div></div>
+            <div class="button"><img id="mark" onclick="updateTotal('mark', true)" src="images/items/79.png" alt="The Mark"><div class="hoverDiv">The Mark</div></div>
+            <div class="button"><img id="pact" onclick="updateTotal('pact', true)" src="images/items/80.png" alt="The Pact"><div class="hoverDiv">The Pact</div></div>
+            <div class="button"><img id="nail" onclick="updateTotal('nail', true)" src="images/items/83.png" alt="The Nail"><div class="hoverDiv">The Nail</div></div>
+            <div class="button"><img id="rock" onclick="updateTotal('rock', true)" src="images/items/90.png" alt="The Small Rock"><div class="hoverDiv">The Small Rock</div></div>
+            <div class="button"><img id="halo" onclick="updateTotal('halo', true)" src="images/items/101.png" alt="The Halo"><div class="hoverDiv">The Halo</div></div>
+            <div class="button"><img id="money" onclick="updateTotal('money', true)" src="images/items/109.png" alt="Money = Power"><div class="hoverDiv">Money = Power</div></div>
+            <div class="button"><img id="thin" onclick="updateTotal('thin', true)" src="images/items/120.png" alt="Odd Mushroom (Thin)"><div class="hoverDiv">Odd Mushroom (Thin)</div></div>
+            <div class="button"><img id="thick" onclick="updateTotal('thick', true)" src="images/items/121.png" alt="Odd Mushroom (Thick)"><div class="hoverDiv">Odd Mushroom (Thick)</div></div>
+            <div class="button"><img id="whore" onclick="updateTotal('whore', true)" src="images/items/122.png" alt="Whore of Babylon"><div class="hoverDiv">Whore of Babylon</div></div>
+            <div class="button"><img id="razor" onclick="updateTotal('razor', true)" src="images/items/126.png" alt="Razor Blade"><div class="hoverDiv">Razor Blade</div></div>
+            <div class="button"><img id="coal" onclick="updateTotal('coal', true)" src="images/items/132.png" alt="Lump of Coal"><div class="hoverDiv">Lump of Coal</div></div>
+            <div class="button"><img id="stigmata" onclick="updateTotal('stigmata', true)" src="images/items/138.png" alt="Stigmata"><div class="hoverDiv">Stigmata</div></div>
+            <div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>
+            <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
+            <div class="button"><img id="sacred" onclick="updateTotal('sacred', true)" src="images/items/182.png" alt="Sacred Heart"><div class="hoverDiv">Sacred Heart</div></div>
+            <div class="button"><img id="smb" onclick="updateTotal('smb', true)" src="images/items/189.png" alt="SMB Super Fan"><div class="hoverDiv">SMB Super Fan</div></div>
+            <div class="button"><img id="meat" onclick="updateTotal('meat', true)" src="images/items/193.png" alt="MEAT!"><div class="hoverDiv">MEAT!</div></div>
+            <div class="button"><img id="jesus" onclick="updateTotal('jesus', true)" src="images/items/197.png" alt="Jesus Juice"><div class="hoverDiv">Jesus Juice</div></div>
+        </div>
+        
+        <div class="calc-full">
+            <h3>Fire Rate Items:</h3>    
+            <div class="button"><img id="onion" onclick="updateTotal('onion', true)" src="images/items/1.png" alt="Sad Onion"><div class="hoverDiv">Sad Onion</div></div>  
+            <div class="button"><img id="triple" onclick="updateTotal('triple', true)" src="images/items/2.png" alt="Inner Eye"><div class="hoverDiv">Inner Eye</div></div>  
+            <div class="button"><img id="numberone" onclick="updateTotal('numberone', true)" src="images/items/6.png" alt="Number One"><div class="hoverDiv">Number One</div></div> 
+            <div class="button"><img id="hanger" onclick="updateTotal('hanger', true)" src="images/items/32.png"alt="Wire Coat Hanger"><div class="hoverDiv">Wire Coat Hanger</div></div>  
+            <div class="button"><img id="wiggle" onclick="updateTotal('wiggle', true)" src="images/items/59.png" alt="Wiggle Worm"><div class="hoverDiv">Wiggle Worm</div></div>  
+            <div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>
+            <div class="button"><img id="quad" onclick="updateTotal('quad', true)" src="images/items/153.png" alt="Mutant Spider"><div class="hoverDiv">Mutant Spider</div></div>
+            <div class="button"><img id="squeezy" onclick="updateTotal('squeezy', true)" src="images/items/196.png" alt="Squeezy"><div class="hoverDiv">Squeezy</div></div>
+        </div>
+        
+        <div class="calc-half">
+            <h3>Tear Modifiers:</h3>
+            <div class="button"><img id="fetus" onclick="updateTotal('fetus', true)" src="images/items/52.png" alt="Dr. Fetus"><div class="hoverDiv">Dr. Fetus</div></div>
+            <div class="button"><img id="tech" onclick="updateTotal('tech', true)" src="images/items/68.png" alt="Technology"><div class="hoverDiv">Technology</div></div>
+            <div class="button"><img id="knife" onclick="updateTotal('knife', true)" src="images/items/114.png" alt="Mom's Knife"><div class="hoverDiv">Mom's Knife</div></div>
+            <div class="button"><img id="brim" onclick="updateTotal('brim', true)" src="images/items/118.png" alt="Brimstone"><div class="hoverDiv">Brimstone</div></div> 
+            <div class="button"><img id="ipecac" onclick="updateTotal('ipecac', true)" src="images/items/149.png" alt="Ipecac"><div class="hoverDiv">Ipecac</div></div> 
+            <div class="button"><img id="epic" onclick="updateTotal('epic', true)" src="images/items/168.png" alt="Epic Fetus"><div class="hoverDiv">Epic Fetus</div></div>
+        </div>
+        
+        <div class="calc-half">
+            <h3>Trinkets / Cards:</h3>
+            <div class="button"><img id="curved" onclick="updateTotal('curved', true)" src="images/items/t-35.png" /></li><div class="hoverDiv">Curved Horn</div></div>
+            <div class="button"><img id="cancer" onclick="updateTotal('cancer', true)" src="images/items/t-39.png" /></li><div class="hoverDiv">Cancer</div></div> 
+            <div class="button"><img id="empress" onclick="updateTotal('empress', true)" src="images/items/c3.png" /></li><div class="hoverDiv">III The Empress</div></div> 
+            <div class="button"><img id="devil" onclick="updateTotal('devil', true)" src="images/items/c15.png" /></li><div class="hoverDiv">XV The Devil</div></div>
+        </div>
+        
+        <div class="calc-full">
+            <h3>Character:</h3>
+            <select name="combo1" id="combo1" onchange="updateTotal()">
+                <option value="isaac" selected="selected" title="images/characters/isaac.png">Isaac</option>
+                <option value="maggy" title="images/characters/maggy.png">Maggy</option>
+                <option value="cain" title="images/characters/cain.png">Cain</option>
+                <option value="judas" title="images/characters/judas.png">Judas</option>
+                <option value="dead_baby" title="images/characters/bluebaby.png">???</option>
+                <option value="eve" title="images/characters/eve.png">Eve</option>
+                <option value="samson" title="images/characters/samson.png">Samson</option>
+            </select>
+        </div>
+
+        <h3>Additional options:</h3>
+        <div class="calc-extra" id="option1">Total Coins (Money = Power): <input type="text" id="totalCoins" name="totalCoins" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 99)</div>
+        <div class="calc-extra" id="option2">Razor Blade (Times used): <input type="text" id="totalRazor" name="totalRazor" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Unlimited)</div>
+        <div class="calc-extra" id="option3">Lump of Coal (Frames on screen): <input type="text" id="totalCoal" name="totalCoal" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 150)</div>
+        <div class="calc-extra" id="option4">Tears Up pills: <input type="text" id="pillsUp" name="pillsUp" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
+        <div class="calc-extra" id="option5">Tears Down pills: <input type="text" id="pillsDown" name="pillsDown" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
+     </div>
+    
+    <div id="infotext">Start clicking on some of the items to change the stat values above so they reflect in-game stats with the chosen items.</div>
+    
+    <h3>Instructions:</h3>
+    <p class="instructions">This page acts as a damage calculator and will show you the exact damage of the player's tears as they would be in-game with certain item setups. It's quite simple to use, just click on the images to select them and choose a character and it will emulate that setup from within the game and give you the damage value.</p>
+    <p class="instructions">Please note that while some items are often referred to as +1 damage (e.g. Pentagram, Steven), this will result in a much higher increase in terms of final DPS. For a full explanation see the <a href="http://bindingofisaac.wikia.com/wiki/Stats/Damage">Damage Stat</a> page on the wiki.</p>
+    
+    <p class="thanks">Huge thanks to <a target="_blank" href="http://www.twitch.tv/hyphen_ated">hyphen-ated</a> for helping develop this page, go show him some love!</h4>
+
+</div>
