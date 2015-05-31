@@ -1,4 +1,108 @@
+<!doctype html>
+<html id="ht">
+<head>
+<title>Damage Calculator | Isaac Cheat Sheet - Platinum God</title>
+<meta name="description" content="Binding of Isaac Damage, Tears and DPS Calculator. Simulate in-game damage values and figure out which item is better in certain situations.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <link rel="stylesheet" type="text/css" href="css/style4.css?v=69">
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+<!--<meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
+<meta http-equiv="pragma" content="no-cache" />-->
+
+<script>
+function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date;i.setTime(i.getTime()+n*24*60*60*1e3);var s="expires="+i.toGMTString();document.cookie=e+"="+t+"; "+s}}function gC(e){var t=e+"=";var n=document.cookie.split(";");for(var r=0;r<n.length;r++){var i=n[r].trim();if(i.indexOf(t)==0)return i.substring(t.length,i.length)}return""}function cC(){var e=gC("nocookie");if(e=="y"){var t=gC("night");var n=document.getElementById("night-on");var r=document.getElementById("night-off");if(t=="on"){var i=document.getElementById("ht");i.className="dark";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=false;n.checked=true}}else if(t=="off"){var i=document.getElementById("ht");i.className="";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=true;n.checked=false}}else{var i=document.getElementById("ht");i.className="";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=true;n.checked=false}}}}function checkPP(){var e=gC("nocookie");if(e!=="y"){var t=document.getElementById("pp");t.style.display="block"}}
+</script>
+</head>
+<body>
+<div class="overlay" id="darkback"></div>
+<header>
+	<div class="container full">
+    	<div class="mobile-nav">&#9776;</div>
+        <div class="mobile-nav-container">
+        	<a class="nav-dd">Home &#x25B6;</a>
+            <ul class="main-nav-list">
+            	<li><a  href="original">Original</a></li>
+            	<li><a  href="rebirth">Rebirth</a></li>
+            </ul>
+            <a class="nav-dd">Rebirth &#x25B6;</a>
+            <ul class="rebirth-nav-list">
+            	<li><a  href="rebirth-info">Info</a></li>
+            	<li><a  href="rebirth-seeds">Seeds</a></li>
+                <li><a  href="babies">Babies</a></li>
+            </ul>
+            <a  href="synergies">Synergies</a>
+            <a  class="active" href="calculator">Calculator</a>
+            <a  href="afterbirth">Afterbirth</a>
+        </div>
+		<div class="navigation">
+			<a class="nav-item nav-dd">Home &#x25BC;</a>
+            <ul class="main-nav-list">
+            	<li><a class="nav-item" href="original">Original</a></li>
+            	<li><a class="nav-item" href="rebirth">Rebirth</a></li>
+            </ul>
+            <a class="nav-item nav-dd">Rebirth &#x25BC;</a>
+            <ul class="rebirth-nav-list">
+            	<li><a class="nav-item" href="rebirth-info">Info</a></li>
+            	<li><a class="nav-item" href="rebirth-seeds">Seeds</a></li>
+                <li><a class="nav-item" href="babies">Babies</a></li>
+            </ul>
+            <a class="nav-item" href="synergies">Synergies</a>
+            <a class="nav-item active" href="calculator">Calculator</a>
+            <a class="nav-item nav-item-highlight" href="afterbirth" data-hover="The DLC">Afterbirth</a>
+		</div>
+        <div class="search"> 
+        	            <div class="option-expander"></div>
+            <div class="option-container">
+            	<ul class="options-show">
+                	<li class="fade"><h3>Show:</h3></li>
+                    <label class="fade">Items<input type="checkbox" name="section_items" id="item-check" checked></label>
+                    <label class="fade">Trinkets<input type="checkbox" name="section_trink" id="trinket-check" checked></label>
+                    <label class="last-item fade">Cards<input type="checkbox" name="section_cards" id="card-check" checked></label>
+                    <li><h3>Night Mode:</h3></li>
+                    <label>On<input type="radio" name="night" id="night-on" onclick="sC('night','on',360)"></label>
+                    <label>Off<input type="radio" name="night" id="night-off" checked onclick="sC('night','off',360)"></label>
+                </ul>
+                <ul class="options-show fade">
+                	<li><h3>Sort:</h3></li>
+                    <label id="iid-label">Item ID<div class="itemid-hoverdiv" style="display:none">The same order as the in-game collection page</div><input type="radio" name="sort" id="itemid" onclick="sC('sort','id',360)"></label>
+                    <label>Colour<input type="radio" name="sort" id="colour" onclick="sC('sort','co',360)"></label>
+                    <label class="last-item">Alphabetical<input type="radio" name="sort" id="alphabet" onclick="sC('sort','az',360)" checked></label>
+                    <li><h3>Filter Style:</h3></li>
+                    <label>Remove<input type="radio" name="filter" id="remove" onclick="sC('filter','r',60)"></label>
+                    <label>Fade<input type="radio" name="filter" id="fade" checked onclick="sC('filter','f',60)"></label>
+                </ul>
+                <ul class="options-show fade">
+                	<li><h3>Icon Size:</h3></li>
+                    <label>Smaller<input type="radio" name="size" id="small" onclick="sC('size','s',360)"></label>
+                    <label class="last-item">Default<input type="radio" name="size" id="medium" checked onclick="sC('size','m',360)"></label>
+                    <li><h3>Icon Spacing:</h3></li>
+                    <label>Closer<input type="radio" name="spacing" id="closer"></label>
+                    <label>Default<input type="radio" name="spacing" id="spaced" checked></label>
+                </ul>
+                               <div class="option-pools">
+                	<h2>Item pools</h2>
+                	<div class="pool-itm">Item Room</div>
+                    <div class="pool-shop">Shop</div>
+                    <div class="pool-boss">Boss Room</div>
+                    <div class="pool-devil">Devil Room</div>
+                    <div class="pool-angel">Angel Room</div>
+                    
+                    <div class="pool-secret">Secret Room</div>
+                    <div class="pool-lib">Library</div>
+                    <div class="pool-gold">Golden Chest</div>
+                    <div class="pool-red">Red Chest</div>
+                    <div class="pool-curse">Curse Room</div>
+                    
+                    <div class="pool-nbeggar">Beggar</div>
+                    <div class="pool-dbeggar">Demon Beggar</div>
+                    <div class="pool-kbeggar">Key Beggar</div>
+                    <div class="pool-dung">Dungeon Room</div>                
+                </div>
+            </div>
+        </div>
+	</div>
+</header><script>cC();</script>
 <div class="calc"><h1>Isaac Cheat Sheet</h1>
 <h2>Damage / DPS Calculator (Original Game)</h2>
 <div class="calc-main">
@@ -99,3 +203,47 @@
     <p class="thanks">Huge thanks to <a target="_blank" href="http://www.twitch.tv/hyphen_ated">hyphen-ated</a> for helping develop this page, go show him some love!</h4>
 
 </div>
+
+</div>
+
+
+<div class="footer-bar"><p></p></div>
+<footer>
+<div class="links">
+    <ul>
+    	<li>Useful Links</li>
+    	<li><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JCW7685VJZ6A">Donate to me</a></li>
+        <li><a target="_blank" href="faq">FAQ / Help</a></li>
+        <li><a target="_blank" href="http://www.reddit.com/r/bindingofisaac/">/r/bindingofisaac</a></li>
+        <li><a target="_blank" href="http://bindingofisaacrebirth.gamepedia.com/Binding_of_Isaac:_Rebirth_Wiki">Rebirth Wiki</a></li>
+        <li><a target="_blank" href="http://store.steampowered.com/app/113200/">Buy Isaac</a></li>
+        <li><a target="_blank" href="http://store.steampowered.com/app/250900/">Buy Rebirth</a></li>
+        <li><a target="_blank" href="http://edmundm.com/">Edmund's Blog</a></li>
+        <li><a target="_blank" href="http://spidermod.spiderland.net/">SpiderMod</a></li>
+        <li><a target="_blank" href="cookies">Cookie Policy</a></li>
+    </ul>
+</div>
+<div class="social">
+	<ul>
+    	<li></li>
+    	<li><img width="50" height="50" src="images/twitter.png" alt="Follow me on twitter"><a target="_blank" href="http://twitter.com/eluc_">@eluc_</a></li>
+        <li><img width="50" height="50" src="images/email.png" alt="Email me"><a href="mailto:owner@platinumgod.co.uk">owner@platinumgod.co.uk</a></li>
+        <li><img width="50" height="50" src="images/reddit.png" alt="Contact via reddit"><a target="_blank" href="http://www.reddit.com/message/compose/?to=elucidater">/u/elucidater</a></li>
+    </ul>
+</div>
+<div class="pg">
+<img id="pg-img" width="298" height="336" src="images/elucidate.png" onclick="rndSound()">
+<audio class="audio" id="footersound" src=""></audio>
+</div>
+</footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="js/jquery.tinysort.min.js"></script>
+<script src='js/jquery.dd.min.js'></script>
+<script src='js/jquery.color.min.js'></script>
+<link rel='stylesheet' type='text/css' href='css/dd.css'>
+<script src='js/calc.js'></script><script src="js/main.js"></script>
+</body>
+</html>
+
+
