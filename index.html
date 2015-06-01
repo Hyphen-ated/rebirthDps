@@ -106,10 +106,14 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
 <div class="calc"><h1>Isaac Cheat Sheet</h1>
 <h2>Damage / DPS Calculator (Original Game)</h2>
 <div class="calc-main">
-	<div class="dmg">Tear Damage: <span id="dmg-val">3.50</span></div>
+	<div class="dmg">
+        Damage Stat: <span id="dmg-stat-val">0.00</span><br>
+        Tear Damage: <span id="dmg-val">3.50</span>
+    </div>
 	<div class="tps">
-    	Tears per second: <span id="tps-val">2.73</span>
-        <div class="delay">Delay: <span id="delay-val">10.00</span> Effective Delay: <span id="effective-val">11.00</span></div>
+        Tears Stat: <span id="tears-stat-val">0.00</span><br>
+        Delay: <span id="delay-val">11.00</span><br>
+    	Tears per second: <span id="tps-val">2.73</span>        
     </div>
     <div class="dps">Damage per second: <span id="dps-val">9.55</span></div>
 	
@@ -133,7 +137,6 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
             <div class="button"><img id="thick" onclick="updateTotal('thick', true)" src="images/items/121.png" alt="Odd Mushroom (Thick)"><div class="hoverDiv">Odd Mushroom (Thick)</div></div>
             <div class="button"><img id="whore" onclick="updateTotal('whore', true)" src="images/items/122.png" alt="Whore of Babylon"><div class="hoverDiv">Whore of Babylon</div></div>
             <div class="button"><img id="razor" onclick="updateTotal('razor', true)" src="images/items/126.png" alt="Razor Blade"><div class="hoverDiv">Razor Blade</div></div>
-            <div class="button"><img id="coal" onclick="updateTotal('coal', true)" src="images/items/132.png" alt="Lump of Coal"><div class="hoverDiv">Lump of Coal</div></div>
             <div class="button"><img id="stigmata" onclick="updateTotal('stigmata', true)" src="images/items/138.png" alt="Stigmata"><div class="hoverDiv">Stigmata</div></div>
             <div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>
             <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
@@ -149,12 +152,12 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
             <div class="button"><img id="triple" onclick="updateTotal('triple', true)" src="images/items/2.png" alt="Inner Eye"><div class="hoverDiv">Inner Eye</div></div>  
             <div class="button"><img id="numberone" onclick="updateTotal('numberone', true)" src="images/items/6.png" alt="Number One"><div class="hoverDiv">Number One</div></div> 
             <div class="button"><img id="hanger" onclick="updateTotal('hanger', true)" src="images/items/32.png"alt="Wire Coat Hanger"><div class="hoverDiv">Wire Coat Hanger</div></div>  
-            <div class="button"><img id="wiggle" onclick="updateTotal('wiggle', true)" src="images/items/59.png" alt="Wiggle Worm"><div class="hoverDiv">Wiggle Worm</div></div>  
-            <div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>
+            <!--<div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>-->
             <div class="button"><img id="quad" onclick="updateTotal('quad', true)" src="images/items/153.png" alt="Mutant Spider"><div class="hoverDiv">Mutant Spider</div></div>
             <div class="button"><img id="squeezy" onclick="updateTotal('squeezy', true)" src="images/items/196.png" alt="Squeezy"><div class="hoverDiv">Squeezy</div></div>
         </div>
         
+        <!--
         <div class="calc-half">
             <h3>Tear Modifiers:</h3>
             <div class="button"><img id="fetus" onclick="updateTotal('fetus', true)" src="images/items/52.png" alt="Dr. Fetus"><div class="hoverDiv">Dr. Fetus</div></div>
@@ -164,6 +167,7 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
             <div class="button"><img id="ipecac" onclick="updateTotal('ipecac', true)" src="images/items/149.png" alt="Ipecac"><div class="hoverDiv">Ipecac</div></div> 
             <div class="button"><img id="epic" onclick="updateTotal('epic', true)" src="images/items/168.png" alt="Epic Fetus"><div class="hoverDiv">Epic Fetus</div></div>
         </div>
+        -->
         
         <div class="calc-half">
             <h3>Trinkets / Cards:</h3>
@@ -183,13 +187,13 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
                 <option value="dead_baby" title="images/characters/bluebaby.png">???</option>
                 <option value="eve" title="images/characters/eve.png">Eve</option>
                 <option value="samson" title="images/characters/samson.png">Samson</option>
+                <option value="shadow" title="images/characters/shadow.png">S</option>
             </select>
         </div>
 
         <h3>Additional options:</h3>
         <div class="calc-extra" id="option1">Total Coins (Money = Power): <input type="text" id="totalCoins" name="totalCoins" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 99)</div>
         <div class="calc-extra" id="option2">Razor Blade (Times used): <input type="text" id="totalRazor" name="totalRazor" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Unlimited)</div>
-        <div class="calc-extra" id="option3">Lump of Coal (Frames on screen): <input type="text" id="totalCoal" name="totalCoal" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 150)</div>
         <div class="calc-extra" id="option4">Tears Up pills: <input type="text" id="pillsUp" name="pillsUp" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
         <div class="calc-extra" id="option5">Tears Down pills: <input type="text" id="pillsDown" name="pillsDown" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
      </div>

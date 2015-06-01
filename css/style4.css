@@ -1068,7 +1068,7 @@ footer .pg img {
 .calc .calc-main .tps,
 .calc .calc-main .dps {
 	width: 30%;
-	height: 75px;
+	height: 150px;
 	border: 1px solid #d9d9d9;
 	border-top: 1px solid #c0c0c0;
 	display: inline-block;
@@ -1090,7 +1090,7 @@ footer .pg img {
 	font-weight:normal;
 }
 .calc .calc-main .tps {
-	height:50px;
+	height:150px;
 	line-height:50px;	
 }
 .calc .calc-main h3 {

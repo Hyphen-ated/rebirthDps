@@ -18,7 +18,7 @@ var itemValue = {
 		"thick": "0",
 		"whore": "0",
 		"razor": "0",
-		"coal": "0",
+		//"coal": "0",
 		"stigmata": "0",
 		"tech2": "0",
 		"poly": "0",
@@ -31,7 +31,6 @@ var itemValue = {
 		"triple": "0",
 		"numberone": "0",
 		"hanger": "0",
-		"wiggle": "0",
 		"chocolate": "0",
 		"quad": "0",
 		"squeezy": "0",
@@ -94,7 +93,7 @@ function updateTotal(img, bool)
 	var infoText = "";
 	var coins = document.getElementById('totalCoins').value;
 	var razor = document.getElementById('totalRazor').value;
-	var coal = document.getElementById('totalCoal').value;
+	//var coal = document.getElementById('totalCoal').value;
 	
 	if (items['belial'] == 1)
 	{
@@ -162,6 +161,8 @@ function updateTotal(img, bool)
 	{
 		$("#option2").css({"opacity": "0.2"}); 
 	}
+    
+    document.getElementById('dmg-stat-val').innerHTML = v2.toFixed(2);
 	
 	v2 = 3.5 * Math.sqrt(1 + v2 * 1.2);
 	
@@ -181,6 +182,7 @@ function updateTotal(img, bool)
 	if ($("#combo1").val() == "judas") v3 = 0.35;
 	if ($("#combo1").val() == "dead_baby") v3 = 0.05;
 	if ($("#combo1").val() == "eve") v3 = -0.25;
+    if ($("#combo1").val() == "shadow") v3 = 1.0;
 	
 	v2 *= 1 + v3;
 	
@@ -199,6 +201,7 @@ function updateTotal(img, bool)
 		//make this less shit
 		v2 *= 0.2;
 	}
+      
 	
 	if (items['knife'] == 1) {
 		v2 *= 6;	
@@ -216,11 +219,13 @@ function updateTotal(img, bool)
 		}
 	}
 		
-	if (items['coal'] == 1 && items['knife'] == 0 && items['brim'] == 0 && items['tech'] == 0 && items['fetus'] == 0) 
+	/*
+    if (items['coal'] == 1 && items['knife'] == 0 && items['brim'] == 0 && items['tech'] == 0 && items['fetus'] == 0) 
 	{
 		v2 += Math.min(coal,150) * 0.14;
 		$("#option3").css({"opacity": "1"}); 
 	}
+    */
 	else
 	{
 		$("#option3").css({"opacity": "0.2"});  
@@ -252,14 +257,7 @@ function updateTotal(img, bool)
 			v2 *= 3;	
 		}
 	}
-	
-	if (items['tech'] == 1 && items['brim'] == 0 && items['knife'] == 0 && items['fetus'] == 0 && items['coal'] == 1) {
-		v2 += 2;	
-	}
-	if (items['brim'] == 1 && items['knife'] == 0 && items['coal'] == 1) {
-		v2 += 6;
-	}
-	
+		
 	if (items['epic'] == 1) {
 		v2 = 80;
 		$('#infotext').removeClass('fade');
@@ -316,7 +314,6 @@ function updateTotal(img, bool)
 	if(items['onion'] === 1) delayMod += 0.7;
 	if(items['thin'] === 1) delayMod += 1.7;
 	if(items['squeezy'] === 1) delayMod += 0.4;
-	if(items['wiggle'] === 1) delayMod += 0.4;
 	if(items['sacred'] === 1) delayMod -= 0.4;
 	if(items['halo'] === 1) delayMod += 0.2;
 	if(items['rock'] === 1) delayMod += 0.2;
@@ -326,27 +323,26 @@ function updateTotal(img, bool)
 	delayMod += document.getElementById("pillsUp").value * 0.7 * 0.5;
 	delayMod -= document.getElementById("pillsDown").value * 0.7 * 0.4;
 	
+    document.getElementById('tears-stat-val').innerHTML = delayMod.toFixed(2);
+    
 	var f1 = Math.sqrt(Math.max(0, 1 + delayMod * 1.3));
     var delay = Math.max(5, 16 - f1 * 6 - Math.min(delayMod, 0) * 6);
-	
-	if(items['chocolate'] === 1) delay *= 0.8;
+	delay = Math.max(delay, 5.0)
+    
+	if(items['chocolate'] === 1) delay *= 2.5;
 	if(items['triple'] === 1 ||
 	   items['quad'] === 1 ||
 	   items['poly'] === 1 || 
 	   items['ipecac'] === 1 ) delay = delay * 2.1 + 3;
 	if(items['cancer'] === 1) delay -= 2;
-	
+		
+	delay += 1;
+	delay = Math.floor(delay);
+	delay = Math.max(delay, 2.0);
 	document.getElementById('delay-val').innerHTML = delay.toFixed(2);
 	
-	if (delay % 1 == 0) {
-		delay += 1;
-	}
-	var effectiveDelay = Math.ceil(delay);
 	
-	document.getElementById('effective-val').innerHTML = effectiveDelay.toFixed(2);
-	
-	
-	var rof = 30 / effectiveDelay;	
+	var rof = 30 / delay;	
 	if(items['tech2'] === 1) rof = 10;
 	
 	var dps = rof * v2;
