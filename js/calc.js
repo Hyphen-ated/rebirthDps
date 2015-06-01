@@ -143,7 +143,7 @@ function updateTotal(img, bool)
 	
 	if (items['empress'] == 1)
 	{
-		v2 += 3.375;
+		v2 += 1.5;
 	}
 	else if (items['whore'] == 1) 
 	{
