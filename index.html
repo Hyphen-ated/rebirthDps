@@ -7,107 +7,17 @@
 <link rel="stylesheet" type="text/css" href="css/style4.css?v=69">
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
-<!--<meta http-equiv="expires" content="Sun, 01 Jan 2014 00:00:00 GMT"/>
-<meta http-equiv="pragma" content="no-cache" />-->
 
-<script>
-function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date;i.setTime(i.getTime()+n*24*60*60*1e3);var s="expires="+i.toGMTString();document.cookie=e+"="+t+"; "+s}}function gC(e){var t=e+"=";var n=document.cookie.split(";");for(var r=0;r<n.length;r++){var i=n[r].trim();if(i.indexOf(t)==0)return i.substring(t.length,i.length)}return""}function cC(){var e=gC("nocookie");if(e=="y"){var t=gC("night");var n=document.getElementById("night-on");var r=document.getElementById("night-off");if(t=="on"){var i=document.getElementById("ht");i.className="dark";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=false;n.checked=true}}else if(t=="off"){var i=document.getElementById("ht");i.className="";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=true;n.checked=false}}else{var i=document.getElementById("ht");i.className="";if(r!==undefined&&n!==undefined&&r!==null&&n!==null){r.checked=true;n.checked=false}}}}function checkPP(){var e=gC("nocookie");if(e!=="y"){var t=document.getElementById("pp");t.style.display="block"}}
-</script>
 </head>
 <body>
 <div class="overlay" id="darkback"></div>
-<header>
-	<div class="container full">
-    	<div class="mobile-nav">&#9776;</div>
-        <div class="mobile-nav-container">
-        	<a class="nav-dd">Home &#x25B6;</a>
-            <ul class="main-nav-list">
-            	<li><a  href="original">Original</a></li>
-            	<li><a  href="rebirth">Rebirth</a></li>
-            </ul>
-            <a class="nav-dd">Rebirth &#x25B6;</a>
-            <ul class="rebirth-nav-list">
-            	<li><a  href="rebirth-info">Info</a></li>
-            	<li><a  href="rebirth-seeds">Seeds</a></li>
-                <li><a  href="babies">Babies</a></li>
-            </ul>
-            <a  href="synergies">Synergies</a>
-            <a  class="active" href="calculator">Calculator</a>
-            <a  href="afterbirth">Afterbirth</a>
-        </div>
-		<div class="navigation">
-			<a class="nav-item nav-dd">Home &#x25BC;</a>
-            <ul class="main-nav-list">
-            	<li><a class="nav-item" href="original">Original</a></li>
-            	<li><a class="nav-item" href="rebirth">Rebirth</a></li>
-            </ul>
-            <a class="nav-item nav-dd">Rebirth &#x25BC;</a>
-            <ul class="rebirth-nav-list">
-            	<li><a class="nav-item" href="rebirth-info">Info</a></li>
-            	<li><a class="nav-item" href="rebirth-seeds">Seeds</a></li>
-                <li><a class="nav-item" href="babies">Babies</a></li>
-            </ul>
-            <a class="nav-item" href="synergies">Synergies</a>
-            <a class="nav-item active" href="calculator">Calculator</a>
-            <a class="nav-item nav-item-highlight" href="afterbirth" data-hover="The DLC">Afterbirth</a>
-		</div>
-        <div class="search"> 
-        	            <div class="option-expander"></div>
-            <div class="option-container">
-            	<ul class="options-show">
-                	<li class="fade"><h3>Show:</h3></li>
-                    <label class="fade">Items<input type="checkbox" name="section_items" id="item-check" checked></label>
-                    <label class="fade">Trinkets<input type="checkbox" name="section_trink" id="trinket-check" checked></label>
-                    <label class="last-item fade">Cards<input type="checkbox" name="section_cards" id="card-check" checked></label>
-                    <li><h3>Night Mode:</h3></li>
-                    <label>On<input type="radio" name="night" id="night-on" onclick="sC('night','on',360)"></label>
-                    <label>Off<input type="radio" name="night" id="night-off" checked onclick="sC('night','off',360)"></label>
-                </ul>
-                <ul class="options-show fade">
-                	<li><h3>Sort:</h3></li>
-                    <label id="iid-label">Item ID<div class="itemid-hoverdiv" style="display:none">The same order as the in-game collection page</div><input type="radio" name="sort" id="itemid" onclick="sC('sort','id',360)"></label>
-                    <label>Colour<input type="radio" name="sort" id="colour" onclick="sC('sort','co',360)"></label>
-                    <label class="last-item">Alphabetical<input type="radio" name="sort" id="alphabet" onclick="sC('sort','az',360)" checked></label>
-                    <li><h3>Filter Style:</h3></li>
-                    <label>Remove<input type="radio" name="filter" id="remove" onclick="sC('filter','r',60)"></label>
-                    <label>Fade<input type="radio" name="filter" id="fade" checked onclick="sC('filter','f',60)"></label>
-                </ul>
-                <ul class="options-show fade">
-                	<li><h3>Icon Size:</h3></li>
-                    <label>Smaller<input type="radio" name="size" id="small" onclick="sC('size','s',360)"></label>
-                    <label class="last-item">Default<input type="radio" name="size" id="medium" checked onclick="sC('size','m',360)"></label>
-                    <li><h3>Icon Spacing:</h3></li>
-                    <label>Closer<input type="radio" name="spacing" id="closer"></label>
-                    <label>Default<input type="radio" name="spacing" id="spaced" checked></label>
-                </ul>
-                               <div class="option-pools">
-                	<h2>Item pools</h2>
-                	<div class="pool-itm">Item Room</div>
-                    <div class="pool-shop">Shop</div>
-                    <div class="pool-boss">Boss Room</div>
-                    <div class="pool-devil">Devil Room</div>
-                    <div class="pool-angel">Angel Room</div>
-                    
-                    <div class="pool-secret">Secret Room</div>
-                    <div class="pool-lib">Library</div>
-                    <div class="pool-gold">Golden Chest</div>
-                    <div class="pool-red">Red Chest</div>
-                    <div class="pool-curse">Curse Room</div>
-                    
-                    <div class="pool-nbeggar">Beggar</div>
-                    <div class="pool-dbeggar">Demon Beggar</div>
-                    <div class="pool-kbeggar">Key Beggar</div>
-                    <div class="pool-dung">Dungeon Room</div>                
-                </div>
-            </div>
-        </div>
-	</div>
-</header><script>cC();</script>
+
 <div class="calc"><h1>Isaac Cheat Sheet</h1>
-<h2>Damage / DPS Calculator (Original Game)</h2>
+<h2>Lots of stuff copied from <a href="http://platinumgod.co.uk">Platinum God, Eluc's website</a>, 
+<h2>Damage / DPS Calculator (Rebirth)</h2>
 <div class="calc-main">
 	<div class="dmg">
-        Damage Stat: <span id="dmg-stat-val">0.00</span><br>
+        Damage Ups: <span id="dmg-stat-val">0.00</span><br>
         Tear Damage: <span id="dmg-val">3.50</span>
     </div>
 	<div class="tps">
@@ -119,7 +29,7 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
 	
     <div class="buttons">
     	<div class="calc-full">
-        <h3>Damage Items</h3>       
+        <h3>Damage Modifiers</h3>       
             <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
             <div class="button"><img id="sacred" onclick="updateTotal('sacred', true)" src="images/items/182.png" alt="Sacred Heart"><div class="hoverDiv">Sacred Heart</div></div>
             <!--<div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>    -->
@@ -166,11 +76,12 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
             
             <div class="button"><img id="empress" onclick="updateTotal('empress', true)" src="images/items/c3.png" /></li><div class="hoverDiv">III The Empress</div></div> 
             <div class="button"><img id="devil" onclick="updateTotal('devil', true)" src="images/items/c15.png" /></li><div class="hoverDiv">XV The Devil</div></div>
-            
+             <div class="calc-extra" id="option1">Total Coins (Money = Power): <input type="text" id="totalCoins" name="totalCoins" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 99)</div>
+            <div class="calc-extra" id="option2">Razor Blade (Times used): <input type="text" id="totalRazor" name="totalRazor" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Unlimited)</div>
         </div>
         
         <div class="calc-full">
-            <h3>Fire Rate Items:</h3>    
+            <h3>Tears Modifiers:</h3>    
             <div class="button"><img id="2020" onclick="updateTotal('2020', true)" src="images/items/245.png" alt="20/20"><div class="hoverDiv">20/20</div></div>  
             <div class="button"><img id="triple" onclick="updateTotal('triple', true)" src="images/items/2.png" alt="Inner Eye"><div class="hoverDiv">Inner Eye</div></div>  
             <div class="button"><img id="quad" onclick="updateTotal('quad', true)" src="images/items/153.png" alt="Mutant Spider"><div class="hoverDiv">Mutant Spider</div></div>
@@ -186,7 +97,9 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
             <div class="button"><img id="bluemush" onclick="updateTotal('bluemush', true)" src="images/items/342.png" alt="Blue Cap"><div class="hoverDiv">Blue Cap</div></div>  
                            
             <div class="button"><img id="squeezy" onclick="updateTotal('squeezy', true)" src="images/items/196.png" alt="Squeezy"><div class="hoverDiv">Squeezy</div></div>
-            <div class="button"><img id="screw" onclick="updateTotal('screw', true)" src="images/items/255.png" alt="Screw"><div class="hoverDiv">Screw</div></div>  
+            <div class="button"><img id="screw" onclick="updateTotal('screw', true)" src="images/items/255.png" alt="Screw"><div class="hoverDiv">Screw</div></div> 
+            <div class="calc-extra" id="option4">Tears Up pills: <input type="text" id="pillsUp" name="pillsUp" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
+            <div class="calc-extra" id="option5">Tears Down pills: <input type="text" id="pillsDown" name="pillsDown" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
             
         </div>
         <div class="calc-full">
@@ -213,11 +126,6 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
         </div>
         -->
         
-        <div class="calc-half">
-            <h3>Trinkets / Cards:</h3>
-                                  
-        </div>
-        
         <div class="calc-full">
             <h3>Character:</h3>
             <select name="combo1" id="combo1" onchange="updateTotal()">
@@ -231,56 +139,19 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
                 <option value="shadow" title="images/characters/shadow.png">Shadow</option>
             </select>
         </div>
-
-        <h3>Additional options:</h3>
-        <div class="calc-extra" id="option1">Total Coins (Money = Power): <input type="text" id="totalCoins" name="totalCoins" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Max = 99)</div>
-        <div class="calc-extra" id="option2">Razor Blade (Times used): <input type="text" id="totalRazor" name="totalRazor" size="2" value="0" style="text-align:center" onchange="updateTotal()"> (Unlimited)</div>
-        <div class="calc-extra" id="option4">Tears Up pills: <input type="text" id="pillsUp" name="pillsUp" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
-        <div class="calc-extra" id="option5">Tears Down pills: <input type="text" id="pillsDown" name="pillsDown" size="2" value="0" style="text-align:center" onchange="updateTotal()"></div>
+        
      </div>
     
     <div id="infotext">Start clicking on some of the items to change the stat values above so they reflect in-game stats with the chosen items.</div>
     
     <h3>Instructions:</h3>
     <p class="instructions">This page acts as a damage calculator and will show you the exact damage of the player's tears as they would be in-game with certain item setups. It's quite simple to use, just click on the images to select them and choose a character and it will emulate that setup from within the game and give you the damage value.</p>
-    <p class="instructions">Please note that while some items are often referred to as +1 damage (e.g. Pentagram, Steven), this will result in a much higher increase in terms of final DPS. For a full explanation see the <a href="http://bindingofisaac.wikia.com/wiki/Stats/Damage">Damage Stat</a> page on the wiki.</p>
+    <p class="instructions">Please note that while some items are often referred to as +1 damage (e.g. Pentagram, Steven), this will result in a much higher increase in terms of final DPS. For a full explanation see the <a href="https://docs.google.com/spreadsheets/d/1HsZF-jXtb-zAnJH5Py_b38mv1hv0WZp323efY4ZpMW4/edit#gid=596000734">Twinge's Spreadsheet</a>.</p>
     
-    <p class="thanks">Huge thanks to <a target="_blank" href="http://www.twitch.tv/hyphen_ated">hyphen-ated</a> for helping develop this page, go show him some love!</h4>
-
 </div>
 
 </div>
 
-
-<div class="footer-bar"><p></p></div>
-<footer>
-<div class="links">
-    <ul>
-    	<li>Useful Links</li>
-    	<li><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JCW7685VJZ6A">Donate to me</a></li>
-        <li><a target="_blank" href="faq">FAQ / Help</a></li>
-        <li><a target="_blank" href="http://www.reddit.com/r/bindingofisaac/">/r/bindingofisaac</a></li>
-        <li><a target="_blank" href="http://bindingofisaacrebirth.gamepedia.com/Binding_of_Isaac:_Rebirth_Wiki">Rebirth Wiki</a></li>
-        <li><a target="_blank" href="http://store.steampowered.com/app/113200/">Buy Isaac</a></li>
-        <li><a target="_blank" href="http://store.steampowered.com/app/250900/">Buy Rebirth</a></li>
-        <li><a target="_blank" href="http://edmundm.com/">Edmund's Blog</a></li>
-        <li><a target="_blank" href="http://spidermod.spiderland.net/">SpiderMod</a></li>
-        <li><a target="_blank" href="cookies">Cookie Policy</a></li>
-    </ul>
-</div>
-<div class="social">
-	<ul>
-    	<li></li>
-    	<li><img width="50" height="50" src="images/twitter.png" alt="Follow me on twitter"><a target="_blank" href="http://twitter.com/eluc_">@eluc_</a></li>
-        <li><img width="50" height="50" src="images/email.png" alt="Email me"><a href="mailto:owner@platinumgod.co.uk">owner@platinumgod.co.uk</a></li>
-        <li><img width="50" height="50" src="images/reddit.png" alt="Contact via reddit"><a target="_blank" href="http://www.reddit.com/message/compose/?to=elucidater">/u/elucidater</a></li>
-    </ul>
-</div>
-<div class="pg">
-<img id="pg-img" width="298" height="336" src="images/elucidate.png" onclick="rndSound()">
-<audio class="audio" id="footersound" src=""></audio>
-</div>
-</footer>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="js/jquery.tinysort.min.js"></script>
