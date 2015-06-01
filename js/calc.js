@@ -26,6 +26,29 @@ var itemValue = {
 		"smb": "0",
 		"meat": "0",
 		"jesus": "0",
+        "scythes": "0",
+        "abaddon": "0",
+        "ninetails": "0",
+        "champbelt": "0",
+        "sinrobes": "0",
+        "darkmatter": "0",
+        "ironbar": "0",
+        "guppy": "0",
+        "mulligan": "0",
+        "hivemind": "0",
+        "chempeel": "0",
+        "bloodclot": "0",
+        "2020": "0",
+        "toothpicks": "0",
+        "tornphoto": "0",
+        "bluemush": "0",
+        "screw": "0",
+        "antigrav":"0",
+        "guillotine":"0",
+        "cricketbody":"0",
+        "perfume":"0",
+        "capricorn":"0",
+        "pisces":"0",
 		
 		"onion": "0",
 		"triple": "0",
@@ -126,15 +149,22 @@ function updateTotal(img, bool)
 	{
 		v2 += 1.5;
 	}
-	
+	if (items['scythes'] == 1) v2+= 1.5;
+    if (items['abaddon'] == 1) v2+= 1.5;
 	if (items['steven'] == 1) v2++;
 	if (items['pentagram'] == 1) v2++;
 	if (items['hormones'] == 1) v2++;
 	if (items['mark'] == 1) v2++;
+    if (items['ninetails'] == 1) v2++;
+    if (items['champbelt'] == 1) v2++;
+    if (items['sinrobes'] == 1) v2++;
+    if (items['darkmatter'] == 1) v2++;
+    if (items['guillotine'] == 1) v2++;
 	
 	if (items['pact'] == 1) v2 += 0.5;
 	if (items['max'] == 1) v2 += 0.5;
 	if (items['jesus'] == 1) v2 += 0.5;
+    if (items['capricorn'] == 1) v2 += 0.5;
 	
 	if (items['mushroom'] == 1)  v2 += 0.3;
 	if (items['halo'] == 1) v2 += 0.3;
@@ -142,6 +172,8 @@ function updateTotal(img, bool)
 	if (items['stigmata'] == 1) v2 += 0.3;
 	if (items['smb'] == 1) v2 += 0.3;
 	if (items['meat'] == 1) v2 += 0.3;
+    if (items['ironbar'] == 1) v2 += 0.3;
+        
 	
 	if (items['thin'] == 1)
 	{
@@ -165,7 +197,8 @@ function updateTotal(img, bool)
     document.getElementById('dmg-stat-val').innerHTML = v2.toFixed(2);
 	
 	v2 = 3.5 * Math.sqrt(1 + v2 * 1.2);
-	
+    
+	if(items['chocolate'] === 1) v2 *= 4.0;
 	if (items['poly'] == 1)
 	{
 		if (items['quad'] == 1 || items['triple'] == 1)
@@ -187,6 +220,8 @@ function updateTotal(img, bool)
 	v2 *= 1 + v3;
 	
 	if (items['curved'] == 1) v2 += 2;
+    if (items['chempeel'] == 1) v2 += 1;
+    if (items['bloodclot'] == 1) v2 += 0.5;
 	
 	if (items['sacred'] == 1)
 	{
@@ -264,7 +299,7 @@ function updateTotal(img, bool)
 	}
 	
 	
-	if (items['knife'] == 0 && items['brim'] == 0 && items['ipecac'] == 0 && items['epic'] == 0 && items['fetus'] == 0) {
+	if (items['knife'] == 0 && items['brim'] == 0 && items['ipecac'] == 0 && items['epic'] == 0 && items['fetus'] == 0 && items['chocolate'] == 0) {
 		$('#infotext').addClass('fade');
 		infoText = "Nothing special to say about these items so far!";
 	} 
@@ -272,7 +307,7 @@ function updateTotal(img, bool)
 	var temp = v2.toFixed(2);
 	var knifedmg = v2 / 3;
 	knifedmg = knifedmg.toFixed(2);
-	
+	   
 	if (items['epic'] == 1) {
 		infoText = "Epic Fetus always does 80 damage.";
 	}
@@ -290,6 +325,10 @@ function updateTotal(img, bool)
 		newDmg = newDmg.toFixed(2);
 		infoText = "An Ipecac explosion does normal tear damage (" + newDmg + ") + 50 to any enemies in the explosion radius. It will also do another tear's worth of damage if it directly hits an enemy and also does a single tick of 7 poison damage afterwards.";
 	}
+    
+    if (items['chocolate'] == 1) {
+        infoText += " Warning: Chocolate Milk's interactions with other multipliers aren't properly tested."
+    }
 
 	
 	v2 = v2.toFixed(2);
@@ -308,16 +347,21 @@ function updateTotal(img, bool)
 	}
 	
 		
-	if (items['numberone'] === 1) delayMod += 1.5;	
+	if(items['numberone'] === 1) delayMod += 1.5;	
 	if(items['hanger'] === 1) delayMod += 0.7;
 	if(items['pact'] === 1) delayMod += 0.7;
 	if(items['onion'] === 1) delayMod += 0.7;
+    if(items['toothpicks'] === 1) delayMod += 0.7;
+    if(items['tornphoto'] === 1) delayMod += 0.7;
+    if(items['bluemush'] === 1) delayMod += 0.7;
 	if(items['thin'] === 1) delayMod += 1.7;
 	if(items['squeezy'] === 1) delayMod += 0.4;
 	if(items['sacred'] === 1) delayMod -= 0.4;
 	if(items['halo'] === 1) delayMod += 0.2;
 	if(items['rock'] === 1) delayMod += 0.2;
 	if(items['smb'] === 1) delayMod += 0.2;
+    if(items['screw'] === 1) delayMod += 0.5;
+    if(items['scythes'] === 1) delayMod -= 0.3;
 	if($("#combo1").val() == "samson") delayMod -= 0.25;
 	
 	delayMod += document.getElementById("pillsUp").value * 0.7 * 0.5;
@@ -329,13 +373,21 @@ function updateTotal(img, bool)
     var delay = Math.max(5, 16 - f1 * 6 - Math.min(delayMod, 0) * 6);
 	delay = Math.max(delay, 5.0)
     
-	if(items['chocolate'] === 1) delay *= 2.5;
+	
 	if(items['triple'] === 1 ||
 	   items['quad'] === 1 ||
 	   items['poly'] === 1 || 
 	   items['ipecac'] === 1 ) delay = delay * 2.1 + 3;
 	if(items['cancer'] === 1) delay -= 2;
-		
+    if(items['antigrav'] === 1) delay -= 2;
+    if(items['guillotine'] === 1) delay -= 1;
+    if(items['cricketbody'] === 1) delay -= 1;
+    if(items['perfume'] === 1) delay -= 1;
+    if(items['capricorn'] === 1) delay -= 1;
+    if(items['pisces'] === 1) delay -= 1;
+	
+    if(items['chocolate'] === 1) delay *= 2.5;
+	
 	delay += 1;
 	delay = Math.floor(delay);
 	delay = Math.max(delay, 2.0);
@@ -353,7 +405,11 @@ function updateTotal(img, bool)
 	else if (items['triple'] === 1) {
 	   dps *= 3;
 	   rof *= 3;
-	}
+	} 
+    else if (items['2020'] === 1) {
+        dps *= 2;
+        rof *= 2;
+    }
 	   
 	if (items['epic'] == 1) {
 		delay = 10;
@@ -361,6 +417,15 @@ function updateTotal(img, bool)
 		dps = rof * v2;
 		$('#infotext').removeClass('fade');
 	}
+    
+    if(items['guppy'] == 1) {
+        if(items['hivemind'] === 1) dps *= 5;
+        else dps *= 3;
+    } 
+    else if (items['mulligan'] == 1) {
+        if(items['hivemind'] === 1) dps *= 1.6666;
+        else dps *= 1.3333;
+    }
 	
 	document.getElementById('tps-val').innerHTML = rof.toFixed(2);
 	document.getElementById('dps-val').innerHTML = dps.toFixed(2);

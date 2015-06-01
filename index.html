@@ -112,49 +112,93 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
     </div>
 	<div class="tps">
         Tears Stat: <span id="tears-stat-val">0.00</span><br>
-        Delay: <span id="delay-val">11.00</span><br>
+        Tear Delay: <span id="delay-val">11.00</span><br>
     	Tears per second: <span id="tps-val">2.73</span>        
     </div>
     <div class="dps">Damage per second: <span id="dps-val">9.55</span></div>
 	
     <div class="buttons">
     	<div class="calc-full">
-        <h3>Damage Items</h3>
-            <div class="button"><img id="max" onclick="updateTotal('max', true)" src="images/items/4.png" alt="Max's Head"><div class="hoverDiv">Max's Head</div></div>
+        <h3>Damage Items</h3>       
+            <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
+            <div class="button"><img id="sacred" onclick="updateTotal('sacred', true)" src="images/items/182.png" alt="Sacred Heart"><div class="hoverDiv">Sacred Heart</div></div>
+            <!--<div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>    -->
+            
+            <div class="button"><img id="max" onclick="updateTotal('max', true)" src="images/items/4.png" alt="Max's Head"><div class="hoverDiv">Max's Head</div></div>           
+            <div class="button"><img id="mushroom" onclick="updateTotal('mushroom', true)" src="images/items/12.png" alt="Magic Mushroom"><div class="hoverDiv">Magic Mushroom</div></div>  
+            
+            <div class="button"><img id="scythes" onclick="updateTotal('scythes', true)" src="images/items/237.png" alt="Death's Touch"><div class="hoverDiv">Death's Touch</div></div>  
+            <div class="button"><img id="abaddon" onclick="updateTotal('abaddon', true)" src="images/items/230.png" alt="Abaddon"><div class="hoverDiv">Abaddon</div></div>  
+            <div class="button"><img id="whore" onclick="updateTotal('whore', true)" src="images/items/122.png" alt="Whore of Babylon"><div class="hoverDiv">Whore of Babylon</div></div>
+            
+            <div class="button"><img id="rock" onclick="updateTotal('rock', true)" src="images/items/90.png" alt="The Small Rock"><div class="hoverDiv">The Small Rock</div></div>
             <div class="button"><img id="martyr" onclick="updateTotal('martyr', true)" src="images/items/7.png" alt="Blood of the Martyr"><div class="hoverDiv">Blood of the Martyr</div></div>
-            <div class="button"><img id="mushroom" onclick="updateTotal('mushroom', true)" src="images/items/12.png" alt="Magic Mushroom"><div class="hoverDiv">Magic Mushroom</div></div>
             <div class="button"><img id="belial" onclick="updateTotal('belial', true)" src="images/items/34.png" alt="Book of Belial"><div class="hoverDiv">Book of Belial</div></div>
             <div class="button"><img id="steven" onclick="updateTotal('steven', true)" src="images/items/50.png" alt="Steven"><div class="hoverDiv">Steven</div></div>
             <div class="button"><img id="pentagram" onclick="updateTotal('pentagram', true)" src="images/items/51.png" alt="Pentagram"><div class="hoverDiv">Pentagram</div></div>
             <div class="button"><img id="hormones" onclick="updateTotal('hormones', true)" src="images/items/70.png" alt="Growth Hormones"><div class="hoverDiv">Growth Hormones</div></div>
             <div class="button"><img id="mark" onclick="updateTotal('mark', true)" src="images/items/79.png" alt="The Mark"><div class="hoverDiv">The Mark</div></div>
-            <div class="button"><img id="pact" onclick="updateTotal('pact', true)" src="images/items/80.png" alt="The Pact"><div class="hoverDiv">The Pact</div></div>
+            <div class="button"><img id="ninetails" onclick="updateTotal('ninetails', true)" src="images/items/165.png" alt="Cat O' Nine Tails"><div class="hoverDiv">Cat O' Nine Tails</div></div>
+            <div class="button"><img id="champbelt" onclick="updateTotal('champbelt', true)" src="images/items/208.png" alt="Champion Belt"><div class="hoverDiv">Champion Belt</div></div>
+            <div class="button"><img id="sinrobes" onclick="updateTotal('sinrobes', true)" src="images/items/216.png" alt="Ceremonial Robes"><div class="hoverDiv">Ceremonial Robes</div></div>
+            <div class="button"><img id="darkmatter" onclick="updateTotal('darkmatter', true)" src="images/items/259.png" alt="Dark Matter"><div class="hoverDiv">Dark Matter</div></div>  
+            
             <div class="button"><img id="nail" onclick="updateTotal('nail', true)" src="images/items/83.png" alt="The Nail"><div class="hoverDiv">The Nail</div></div>
-            <div class="button"><img id="rock" onclick="updateTotal('rock', true)" src="images/items/90.png" alt="The Small Rock"><div class="hoverDiv">The Small Rock</div></div>
-            <div class="button"><img id="halo" onclick="updateTotal('halo', true)" src="images/items/101.png" alt="The Halo"><div class="hoverDiv">The Halo</div></div>
-            <div class="button"><img id="money" onclick="updateTotal('money', true)" src="images/items/109.png" alt="Money = Power"><div class="hoverDiv">Money = Power</div></div>
-            <div class="button"><img id="thin" onclick="updateTotal('thin', true)" src="images/items/120.png" alt="Odd Mushroom (Thin)"><div class="hoverDiv">Odd Mushroom (Thin)</div></div>
-            <div class="button"><img id="thick" onclick="updateTotal('thick', true)" src="images/items/121.png" alt="Odd Mushroom (Thick)"><div class="hoverDiv">Odd Mushroom (Thick)</div></div>
-            <div class="button"><img id="whore" onclick="updateTotal('whore', true)" src="images/items/122.png" alt="Whore of Babylon"><div class="hoverDiv">Whore of Babylon</div></div>
-            <div class="button"><img id="razor" onclick="updateTotal('razor', true)" src="images/items/126.png" alt="Razor Blade"><div class="hoverDiv">Razor Blade</div></div>
-            <div class="button"><img id="stigmata" onclick="updateTotal('stigmata', true)" src="images/items/138.png" alt="Stigmata"><div class="hoverDiv">Stigmata</div></div>
-            <div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>
-            <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
-            <div class="button"><img id="sacred" onclick="updateTotal('sacred', true)" src="images/items/182.png" alt="Sacred Heart"><div class="hoverDiv">Sacred Heart</div></div>
-            <div class="button"><img id="smb" onclick="updateTotal('smb', true)" src="images/items/189.png" alt="SMB Super Fan"><div class="hoverDiv">SMB Super Fan</div></div>
-            <div class="button"><img id="meat" onclick="updateTotal('meat', true)" src="images/items/193.png" alt="MEAT!"><div class="hoverDiv">MEAT!</div></div>
             <div class="button"><img id="jesus" onclick="updateTotal('jesus', true)" src="images/items/197.png" alt="Jesus Juice"><div class="hoverDiv">Jesus Juice</div></div>
+            <div class="button"><img id="smb" onclick="updateTotal('smb', true)" src="images/items/189.png" alt="SMB Super Fan"><div class="hoverDiv">SMB Super Fan</div></div>
+            <div class="button"><img id="halo" onclick="updateTotal('halo', true)" src="images/items/101.png" alt="The Halo"><div class="hoverDiv">The Halo</div></div>
+            <div class="button"><img id="meat" onclick="updateTotal('meat', true)" src="images/items/193.png" alt="MEAT!"><div class="hoverDiv">MEAT!</div></div>     
+            <div class="button"><img id="thick" onclick="updateTotal('thick', true)" src="images/items/121.png" alt="Odd Mushroom (Thick)"><div class="hoverDiv">Odd Mushroom (Thick)</div></div>  
+            <div class="button"><img id="stigmata" onclick="updateTotal('stigmata', true)" src="images/items/138.png" alt="Stigmata"><div class="hoverDiv">Stigmata</div></div>     
+            <div class="button"><img id="ironbar" onclick="updateTotal('ironbar', true)" src="images/items/201.png" alt="Iron Bar"><div class="hoverDiv">Iron Bar</div></div>            
+            
+            <div class="button"><img id="guppy" onclick="updateTotal('guppy', true)" src="images/items/guppy.png" alt="Guppy"><div class="hoverDiv">Guppy</div></div>         
+            <div class="button"><img id="mulligan" onclick="updateTotal('mulligan', true)" src="images/items/151.png" alt="Mulligan"><div class="hoverDiv">Mulligan</div></div>    
+            <div class="button"><img id="hivemind" onclick="updateTotal('hivemind', true)" src="images/items/248.png" alt="Hive Mind"><div class="hoverDiv">Hive Mind</div></div> 
+            
+            <div class="button"><img id="curved" onclick="updateTotal('curved', true)" src="images/items/t-35.png" /></li><div class="hoverDiv">Curved Horn</div></div>
+            <div class="button"><img id="chempeel" onclick="updateTotal('chempeel', true)" src="images/items/154.png" alt="Chemical Peel"><div class="hoverDiv">Chemical Peel</div></div>
+            <div class="button"><img id="bloodclot" onclick="updateTotal('bloodclot', true)" src="images/items/254.png" alt="Blood Clot"><div class="hoverDiv">Blood Clot</div></div>
+                              
+            <div class="button"><img id="razor" onclick="updateTotal('razor', true)" src="images/items/126.png" alt="Razor Blade"><div class="hoverDiv">Razor Blade</div></div>           
+            <div class="button"><img id="money" onclick="updateTotal('money', true)" src="images/items/109.png" alt="Money = Power"><div class="hoverDiv">Money = Power</div></div>  
+            <div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>
+            
+            <div class="button"><img id="empress" onclick="updateTotal('empress', true)" src="images/items/c3.png" /></li><div class="hoverDiv">III The Empress</div></div> 
+            <div class="button"><img id="devil" onclick="updateTotal('devil', true)" src="images/items/c15.png" /></li><div class="hoverDiv">XV The Devil</div></div>
+            
         </div>
         
         <div class="calc-full">
             <h3>Fire Rate Items:</h3>    
-            <div class="button"><img id="onion" onclick="updateTotal('onion', true)" src="images/items/1.png" alt="Sad Onion"><div class="hoverDiv">Sad Onion</div></div>  
+            <div class="button"><img id="2020" onclick="updateTotal('2020', true)" src="images/items/245.png" alt="20/20"><div class="hoverDiv">20/20</div></div>  
             <div class="button"><img id="triple" onclick="updateTotal('triple', true)" src="images/items/2.png" alt="Inner Eye"><div class="hoverDiv">Inner Eye</div></div>  
-            <div class="button"><img id="numberone" onclick="updateTotal('numberone', true)" src="images/items/6.png" alt="Number One"><div class="hoverDiv">Number One</div></div> 
-            <div class="button"><img id="hanger" onclick="updateTotal('hanger', true)" src="images/items/32.png"alt="Wire Coat Hanger"><div class="hoverDiv">Wire Coat Hanger</div></div>  
-            <!--<div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>-->
             <div class="button"><img id="quad" onclick="updateTotal('quad', true)" src="images/items/153.png" alt="Mutant Spider"><div class="hoverDiv">Mutant Spider</div></div>
+            
+            <div class="button"><img id="numberone" onclick="updateTotal('numberone', true)" src="images/items/6.png" alt="Number One"><div class="hoverDiv">Number One</div></div>    
+            <div class="button"><img id="thin" onclick="updateTotal('thin', true)" src="images/items/120.png" alt="Odd Mushroom (Thin)"><div class="hoverDiv">Odd Mushroom (Thin)</div></div>  
+            
+            <div class="button"><img id="pact" onclick="updateTotal('pact', true)" src="images/items/80.png" alt="The Pact"><div class="hoverDiv">The Pact</div></div>
+            <div class="button"><img id="onion" onclick="updateTotal('onion', true)" src="images/items/1.png" alt="Sad Onion"><div class="hoverDiv">Sad Onion</div></div>  
+            <div class="button"><img id="toothpicks" onclick="updateTotal('toothpicks', true)" src="images/items/183.png" alt="Toothpicks"><div class="hoverDiv">Toothpicks</div></div>  
+            <div class="button"><img id="hanger" onclick="updateTotal('hanger', true)" src="images/items/32.png"alt="Wire Coat Hanger"><div class="hoverDiv">Wire Coat Hanger</div></div>  
+            <div class="button"><img id="tornphoto" onclick="updateTotal('tornphoto', true)" src="images/items/341.png" alt="Torn Photo"><div class="hoverDiv">Torn Photo</div></div>  
+            <div class="button"><img id="bluemush" onclick="updateTotal('bluemush', true)" src="images/items/342.png" alt="Blue Cap"><div class="hoverDiv">Blue Cap</div></div>  
+                           
             <div class="button"><img id="squeezy" onclick="updateTotal('squeezy', true)" src="images/items/196.png" alt="Squeezy"><div class="hoverDiv">Squeezy</div></div>
+            <div class="button"><img id="screw" onclick="updateTotal('screw', true)" src="images/items/255.png" alt="Screw"><div class="hoverDiv">Screw</div></div>  
+            
+        </div>
+        <div class="calc-full">
+            <h3>Delay Modifiers:</h3>    
+            <div class="button"><img id="cancer" onclick="updateTotal('cancer', true)" src="images/items/t-39.png" /></li><div class="hoverDiv">Cancer</div></div> 
+            <div class="button"><img id="antigrav" onclick="updateTotal('antigrav', true)" src="images/items/222.png" alt="Anti-Gravity"><div class="hoverDiv">Anti-Gravity</div></div>  
+            <div class="button"><img id="guillotine" onclick="updateTotal('guillotine', true)" src="images/items/206.png" alt="Guillotine"><div class="hoverDiv">Guillotine</div></div>              
+            <div class="button"><img id="cricketbody" onclick="updateTotal('cricketbody', true)" src="images/items/224.png" alt="Cricket's Body"><div class="hoverDiv">Cricket's Body</div></div>  
+            <div class="button"><img id="perfume" onclick="updateTotal('perfume', true)" src="images/items/228.png" alt="Mom's Perfume"><div class="hoverDiv">Mom's Perfume</div></div>  
+            <div class="button"><img id="capricorn" onclick="updateTotal('capricorn', true)" src="images/items/307.png" alt="Capricorn"><div class="hoverDiv">Capricorn</div></div>  
+            <div class="button"><img id="pisces" onclick="updateTotal('pisces', true)" src="images/items/309.png" alt="Pisces"><div class="hoverDiv">Pisces</div></div>  
+            
         </div>
         
         <!--
@@ -171,10 +215,7 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
         
         <div class="calc-half">
             <h3>Trinkets / Cards:</h3>
-            <div class="button"><img id="curved" onclick="updateTotal('curved', true)" src="images/items/t-35.png" /></li><div class="hoverDiv">Curved Horn</div></div>
-            <div class="button"><img id="cancer" onclick="updateTotal('cancer', true)" src="images/items/t-39.png" /></li><div class="hoverDiv">Cancer</div></div> 
-            <div class="button"><img id="empress" onclick="updateTotal('empress', true)" src="images/items/c3.png" /></li><div class="hoverDiv">III The Empress</div></div> 
-            <div class="button"><img id="devil" onclick="updateTotal('devil', true)" src="images/items/c15.png" /></li><div class="hoverDiv">XV The Devil</div></div>
+                                  
         </div>
         
         <div class="calc-full">
@@ -187,7 +228,7 @@ function sC(e,t,n){var r=gC("nocookie");if(r=="y"||e=="nocookie"){var i=new Date
                 <option value="dead_baby" title="images/characters/bluebaby.png">???</option>
                 <option value="eve" title="images/characters/eve.png">Eve</option>
                 <option value="samson" title="images/characters/samson.png">Samson</option>
-                <option value="shadow" title="images/characters/shadow.png">S</option>
+                <option value="shadow" title="images/characters/shadow.png">Shadow</option>
             </select>
         </div>
 
