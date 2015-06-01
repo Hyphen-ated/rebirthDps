@@ -198,7 +198,6 @@ function updateTotal(img, bool)
 	
 	v2 = 3.5 * Math.sqrt(1 + v2 * 1.2);
     
-	if(items['chocolate'] === 1) v2 *= 4.0;
 	if (items['poly'] == 1)
 	{
 		if (items['quad'] == 1 || items['triple'] == 1)
@@ -209,7 +208,7 @@ function updateTotal(img, bool)
 			v2 *= 2;
 		}
 	}
-	
+    
 	var v3 = 0;
 	if ($("#combo1").val() == "cain") v3 = 0.2;
 	if ($("#combo1").val() == "judas") v3 = 0.35;
@@ -219,31 +218,17 @@ function updateTotal(img, bool)
 	
 	v2 *= 1 + v3;
 	
-	if (items['curved'] == 1) v2 += 2;
-    if (items['chempeel'] == 1) v2 += 1;
-    if (items['bloodclot'] == 1) v2 += 0.5;
-	
-	if (items['sacred'] == 1)
+	if (items['curved'] == 1) v2 += 2;    
+    if (items['sacred'] == 1)
 	{
 		v2 *= 2.3;
         v2++;
 	}
-	
-	
-	if (items['tech2'] == 1) {
+    if (items['tech2'] == 1) {
 		v2 *= 0.65;
-		if (items['brim'] == 1 && items['knife'] == 1 && items['ipecac'] == 1 && items['tech'] == 1)
-		//make this less shit
-		v2 *= 0.2;
 	}
-      
-	
-	if (items['knife'] == 1) {
-		v2 *= 6;	
-		$('#infotext').removeClass('fade');
-	}
-	
-	if (items['max'] == 1 || 
+    
+    if (items['max'] == 1 || 
 	    items['belial'] == 1 && items['martyr'] == 1 || 
 		items['devil'] == 1 && items['martyr'] == 1 ||
 		items['mushroom'] == 1) {
@@ -253,18 +238,31 @@ function updateTotal(img, bool)
 			}
 		}
 	}
+    
+    var flyDamage = v2 * 2;
+    
+    if (items['chempeel'] == 1) v2 += 1;
+    if (items['bloodclot'] == 1) v2 += 0.5;	
+	
+	if (items['knife'] == 1) {
+		v2 *= 6;	
+		$('#infotext').removeClass('fade');
+	}
+	
+	
 		
 	/*
     if (items['coal'] == 1 && items['knife'] == 0 && items['brim'] == 0 && items['tech'] == 0 && items['fetus'] == 0) 
 	{
 		v2 += Math.min(coal,150) * 0.14;
 		$("#option3").css({"opacity": "1"}); 
-	}
-    */
+	}    
 	else
+    */
 	{
 		$("#option3").css({"opacity": "0.2"});  
 	}	
+    
 	
 	if (items['brim'] == 1 && items['knife'] == 0) {
 		v2 *= 3;
@@ -419,12 +417,12 @@ function updateTotal(img, bool)
 	}
     
     if(items['guppy'] == 1) {
-        if(items['hivemind'] === 1) dps *= 5;
-        else dps *= 3;
+        if(items['hivemind'] === 1) dps += 2 * flyDamage * rof;
+        else dps += flyDamage * rof;
     } 
     else if (items['mulligan'] == 1) {
-        if(items['hivemind'] === 1) dps *= 1.6666;
-        else dps *= 1.3333;
+        if(items['hivemind'] === 1) dps += 2 * flyDamage * rof / 6;
+        else dps += flyDamage * rof / 6;;
     }
 	
 	document.getElementById('tps-val').innerHTML = rof.toFixed(2);
