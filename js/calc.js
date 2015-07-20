@@ -8,6 +8,7 @@ var itemValue = {
 		"steven": "0",
 		"pentagram": "0",
 		"hormones": "0",
+        "synthoil": "0",
 		"mark": "0",
 		"pact": "0",
 		"nail": "0",
@@ -154,6 +155,7 @@ function updateTotal(img, bool)
 	if (items['steven'] == 1) v2++;
 	if (items['pentagram'] == 1) v2++;
 	if (items['hormones'] == 1) v2++;
+    if (items['synthoil'] == 1) v2++;
 	if (items['mark'] == 1) v2++;
     if (items['ninetails'] == 1) v2++;
     if (items['champbelt'] == 1) v2++;
@@ -233,16 +235,17 @@ function updateTotal(img, bool)
 		items['devil'] == 1 && items['martyr'] == 1 ||
 		items['mushroom'] == 1) {
 		if (items['tech'] == 0 || (items['tech'] == 1 && items['fetus'] == 1 )) {
-			if (items['knife'] == 0 && items['brim'] == 0) {
+			if (items['knife'] == 0) {
 				v2 *= 1.5;
 			}
 		}
 	}
     
     var flyDamage = v2 * 2;
-    
-    if (items['chempeel'] == 1) v2 += 1;
-    if (items['bloodclot'] == 1) v2 += 0.5;	
+    if(!items['brim']) {
+        if (items['chempeel'] == 1) v2 += 1;
+        if (items['bloodclot'] == 1) v2 += 0.5;	
+    }
 	
 	if (items['knife'] == 1) {
 		v2 *= 6;	
@@ -262,16 +265,7 @@ function updateTotal(img, bool)
 	{
 		$("#option3").css({"opacity": "0.2"});  
 	}	
-    
-	
-	if (items['brim'] == 1 && items['knife'] == 0) {
-		v2 *= 3;
-		$('#infotext').removeClass('fade');
-		if (items['poly'] == 1 || items['triple'] == 1 || items['quad'] == 1 || items['ipecac'] == 1) {
-			v2 *= 3;
-		}
-	}
-	
+    	
 	if (items['ipecac'] == 1 && items['knife'] == 0 && items['brim'] == 0 && items['fetus'] == 0 && items['tech'] == 0) {
 		v2 += 50;
 		$('#infotext').removeClass('fade');
@@ -312,9 +306,7 @@ function updateTotal(img, bool)
 	if (items['knife'] == 1 && items['epic'] == 0) {
 		infoText = "The above damage value only applies when the knife is charged and is moving forwards. If the knife is not moving or is travelling backtowards Isaac, it will do " + knifedmg + " damage instead.";
 	}
-	if (items['brim'] == 1 && items['knife'] == 0 && items['epic'] == 0) {
-		infoText = "A normal brimstone laser does two ticks of damage per charge, meaning one charge of brimstone will deal " + temp + " damage twice. Please note that brimsnapping will cause Brimstone to tick more than twice, so the damage output will be much more.";
-	}
+
 	if (items['fetus'] == 1 && items['knife'] == 0 && items['brim'] == 0 && items['epic'] == 0) {
 		infoText = "To calculate fetus damage, take your final damage, multiply by 3 and then add 50 (100 if you have Mr. Mega). Thanks aggromidget for this info!";	
 	}
@@ -336,7 +328,7 @@ function updateTotal(img, bool)
 	var delayMod = 0;
 	
 	//temporarily hide DPS and tears for fetus/tech/knife/brim/ipecac
-	if (items['fetus'] == 1 || items['tech'] == 1 || items['knife'] == 1 || items['brim'] == 1 || items['ipecac'] == 1 || items['tech2'] == 1) {
+	if (items['fetus'] == 1 || items['tech'] == 1 || items['knife'] == 1 || items['ipecac'] == 1 || items['tech2'] == 1) {
 		$('.tps').slideUp("fast");
 		$('.dps').slideUp("fast");
 	} else {
@@ -368,15 +360,21 @@ function updateTotal(img, bool)
     document.getElementById('tears-stat-val').innerHTML = delayMod.toFixed(2);
     
 	var f1 = Math.sqrt(Math.max(0, 1 + delayMod * 1.3));
-    var delay = Math.max(5, 16 - f1 * 6 - Math.min(delayMod, 0) * 6);
+    var delay = 16 - f1 * 6 - Math.min(delayMod, 0) * 6;
 	delay = Math.max(delay, 5.0)
     
-	
 	if(items['triple'] === 1 ||
 	   items['quad'] === 1 ||
 	   items['poly'] === 1 || 
-	   items['ipecac'] === 1 ) delay = delay * 2.1 + 3;
-	if(items['cancer'] === 1) delay -= 2;
+	   items['ipecac'] === 1 ) {       
+       delay = delay * 2.1 + 3;
+    }
+	if(items['cancer'] === 1) {
+        delay -= 2; 
+    }
+    if(items['brim']) {
+        delay *= 3;
+	}
     if(items['antigrav'] === 1) delay -= 2;
     if(items['guillotine'] === 1) delay -= 1;
     if(items['cricketbody'] === 1) delay -= 1;
@@ -391,30 +389,41 @@ function updateTotal(img, bool)
 	delay = Math.max(delay, 2.0);
 	document.getElementById('delay-val').innerHTML = delay.toFixed(2);
 	
-	
-	var rof = 30 / delay;	
-	if(items['tech2'] === 1) rof = 10;
-	
-	var dps = rof * v2;
-	if(items['quad'] === 1) {
-	   dps *= 4;
-	   rof *= 4;
-	}
-	else if (items['triple'] === 1) {
-	   dps *= 3;
-	   rof *= 3;
-	} 
-    else if (items['2020'] === 1) {
-        dps *= 2;
-        rof *= 2;
+	if(items['brim']){
+        var rof = 30 / (delay + 25); //it takes 25 frames to shoot off the brim
+        rof *= 12.5; //sometimes it hits 12 times, sometimes 13 times, i'm assuming 50% chance        
+        if(items['quad'] === 1) {
+           rof *= 4;
+        }
+        else if (items['triple'] === 1) {
+           rof *= 3;
+        } 
+        var dps = rof * v2;
+    } else {
+        var rof = 30 / delay;	
+        if(items['tech2'] === 1) rof = 10;
+        
+        var dps = rof * v2;
+        if(items['quad'] === 1) {
+           dps *= 4;
+           rof *= 4;
+        }
+        else if (items['triple'] === 1) {
+           dps *= 3;
+           rof *= 3;
+        } 
+        else if (items['2020'] === 1) {
+            dps *= 2;
+            rof *= 2;
+        }
+           
+        if (items['epic'] == 1) {
+            delay = 10;
+            rof = 0.77;
+            dps = rof * v2;
+            $('#infotext').removeClass('fade');
+        }
     }
-	   
-	if (items['epic'] == 1) {
-		delay = 10;
-		rof = 0.77;
-		dps = rof * v2;
-		$('#infotext').removeClass('fade');
-	}
     
     if(items['guppy'] == 1) {
         if(items['hivemind'] === 1) dps += 2 * flyDamage * rof;
