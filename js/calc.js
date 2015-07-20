@@ -242,7 +242,7 @@ function updateTotal(img, bool)
 	}
     
     var flyDamage = v2 * 2;
-    if(!items['brim']) {
+    if(items['brim'] !== 1) {
         if (items['chempeel'] == 1) v2 += 1;
         if (items['bloodclot'] == 1) v2 += 0.5;	
     }
@@ -372,7 +372,7 @@ function updateTotal(img, bool)
 	if(items['cancer'] === 1) {
         delay -= 2; 
     }
-    if(items['brim']) {
+    if(items['brim'] === 1) {
         delay *= 3;
 	}
     if(items['antigrav'] === 1) delay -= 2;
@@ -389,8 +389,10 @@ function updateTotal(img, bool)
 	delay = Math.max(delay, 2.0);
 	document.getElementById('delay-val').innerHTML = delay.toFixed(2);
 	
-	if(items['brim']){
-        var rof = 30 / (delay + 25); //it takes 25 frames to shoot off the brim
+	if(items['brim'] === 1){
+        if(items['antigrav'] !== 1)
+            delay += 25; //it takes about 25 frames to shoot off the brim
+        var rof = 30 / (delay); 
         rof *= 12.5; //sometimes it hits 12 times, sometimes 13 times, i'm assuming 50% chance        
         if(items['quad'] === 1) {
            rof *= 4;
