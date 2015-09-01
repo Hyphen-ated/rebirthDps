@@ -1,4 +1,4 @@
-
+oldDps = 9.55
 $("body select").msDropDown({visibleRows:10,roundedCorner:false});
 var itemValue = {
 		"max": "0",
@@ -436,8 +436,11 @@ function updateTotal(img, bool)
         else dps += flyDamage * rof / 6;;
     }
 	
-	document.getElementById('tps-val').innerHTML = rof.toFixed(2);
+	document.getElementById('tps-val').innerHTML = rof.toFixed(2);    
 	document.getElementById('dps-val').innerHTML = dps.toFixed(2);
+    change = ((dps - oldDps) / dps) * 100;
+    document.getElementById('dps-change').innerHTML = change.toFixed(2) + "%";
+    oldDps = dps;
 	
 		
 }
