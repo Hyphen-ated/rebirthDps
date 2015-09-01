@@ -438,7 +438,7 @@ function updateTotal(img, bool)
 	
 	document.getElementById('tps-val').innerHTML = rof.toFixed(2);    
 	document.getElementById('dps-val').innerHTML = dps.toFixed(2);
-    change = ((dps - oldDps) / dps) * 100;
+    change = ((dps - oldDps) / oldDps) * 100;
     document.getElementById('dps-change').innerHTML = change.toFixed(2) + "%";
     oldDps = dps;
 	
