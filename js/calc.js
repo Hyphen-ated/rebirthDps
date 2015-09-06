@@ -41,6 +41,8 @@ var itemValue = {
         "hivemind": "0",
         "chempeel": "0",
         "bloodclot": "0",
+        "brim": "0",
+        "lung": "0",
         "2020": "0",
         "toothpicks": "0",
         "tornphoto": "0",
@@ -69,8 +71,7 @@ var itemValue = {
 		
 		"fetus": "0",
 		"tech": "0",
-		"knife": "0",
-		"brim": "0",
+		"knife": "0",		
 		"ipecac": "0",
 		"epic": "0"
 }
@@ -404,6 +405,10 @@ function updateTotal(img, isItem)
     if(items['capricorn'] === 1) delay -= 1;
     if(items['pisces'] === 1) delay -= 1;
 	
+    if(items['lung'] === 1 && items['brim'] !== 1) {
+        delay *= 4.3;
+    }
+    
     if(items['chocolate'] === 1) delay *= 2.5;
 	
 	delay += 1;
@@ -425,28 +430,16 @@ function updateTotal(img, isItem)
         var dps = rof * v2;
     } else {
         var rof = 30 / delay;	
-        if(items['tech2'] === 1) rof = 10;
         
         var dps = rof * v2;
-        if(items['quad'] === 1) {
-           dps *= 4;
-           rof *= 4;
-        }
-        else if (items['triple'] === 1) {
-           dps *= 3;
-           rof *= 3;
-        } 
-        else if (items['2020'] === 1) {
-            dps *= 2;
-            rof *= 2;
-        }
-           
-        if (items['epic'] == 1) {
-            delay = 10;
-            rof = 0.77;
-            dps = rof * v2;
-            $('#infotext').removeClass('fade');
-        }
+        shotcount = 1;
+        if(items['lung'] === 1) shotcount = 13;
+        else if(items['quad'] === 1) shotcount = 4;
+        else if (items['triple'] === 1) shotcount = 3;
+        else if (items['2020'] === 1) shotcount = 2;
+       
+        dps *= shotcount;
+        rof *= shotcount;             
     }
     
     if(items['guppy'] == 1) {
