@@ -237,6 +237,7 @@ function updateTotal(img, isItem)
 	if (character == "judas") v3 = 0.35;
 	if (character == "bluebaby") v3 = 0.05;
 	if (character == "eve") v3 = -0.25;
+    if (character == "lazarus2") v3 = 0.2;
     if (character == "shadow") v3 = 1.0;
 	
 	v2 *= 1 + v3;
