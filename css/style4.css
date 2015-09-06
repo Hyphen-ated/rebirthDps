@@ -1075,7 +1075,7 @@ footer .pg img {
 	margin: 0 0.5%;
 	font-size:21px;
 	background:#fff;
-	line-height:75px;
+	line-height:50px;
 	padding:0 1%;
 	font-weight:200;
 	position:relative;
@@ -1603,24 +1603,7 @@ footer .pg img {
 .dark .cookie-pp .close-btn:hover {
 	color:#000;	
 }
-@media only screen and (max-width:1337px) { 
-	.babies .baby-container .baby-box {
-		width:11.5%;	
-	}
-	.calc .calc-main .dmg,
-	.calc .calc-main .tps,
-	.calc .calc-main .dps {
-		width:100%;
-		margin: 10px 0;
-		padding:0;
-		height:50px;
-		line-height:50px;
-	
-	}
-	.calc .calc-main .tps {
-		margin-bottom:35px;	
-	}
-}
+
 @media only screen and (max-width:1195px) { 
 	.synergy .symbol {
 		display:none;	
