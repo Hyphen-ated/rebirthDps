@@ -24,17 +24,16 @@
 	<div class="tps">
         Tears Up: <span id="tears-stat-val">0.00</span><br>
         Tear Delay: <span id="delay-val">11.00</span><br>
-    	Tears per second: <span id="tps-val">2.73</span>        
+    	Tears/second: <span id="tps-val">2.73</span>        
     </div>
     <div class="dps">
-        Damage per second: <span id="dps-val">9.55</span><br>
+        Damage/second: <span id="dps-val">9.55</span><br>
         Changed by: <span id="dps-change">0.00%</span>
     </div>
 	
     <div class="buttons">
     	<div class="calc-full">
-        <h3>Damage Modifiers</h3>       
-            <div class="button"><img id="brim" onclick="updateTotal('brim', true)" src="images/items/118.png" alt="Brimstone"><div class="hoverDiv">Brimstone</div></div>
+        <h3>Damage Modifiers</h3>                   
             <div class="button"><img id="poly" onclick="updateTotal('poly', true)" src="images/items/169.png" alt="Polyphemus"><div class="hoverDiv">Polyphemus</div></div>
             <div class="button"><img id="sacred" onclick="updateTotal('sacred', true)" src="images/items/182.png" alt="Sacred Heart"><div class="hoverDiv">Sacred Heart</div></div>
             <!--<div class="button"><img id="chocolate" onclick="updateTotal('chocolate', true)" src="images/items/69.png" alt="Chocolate Milk"><div class="hoverDiv">Chocolate Milk</div></div>    -->
@@ -78,7 +77,7 @@
                               
             <div class="button"><img id="razor" onclick="updateTotal('razor', true)" src="images/items/126.png" alt="Razor Blade"><div class="hoverDiv">Razor Blade</div></div>           
             <div class="button"><img id="money" onclick="updateTotal('money', true)" src="images/items/109.png" alt="Money = Power"><div class="hoverDiv">Money = Power</div></div>  
-            <div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>
+            <!--<div class="button"><img id="tech2" onclick="updateTotal('tech2', true)" src="images/items/152.png" alt="Technology 2"><div class="hoverDiv">Technology 2</div></div>-->
             
             <div class="button"><img id="empress" onclick="updateTotal('empress', true)" src="images/items/c3.png" /></li><div class="hoverDiv">III The Empress</div></div> 
             <div class="button"><img id="devil" onclick="updateTotal('devil', true)" src="images/items/c15.png" /></li><div class="hoverDiv">XV The Devil</div></div>
@@ -88,6 +87,8 @@
         
         <div class="calc-full">
             <h3>Tears Modifiers:</h3>    
+            <div class="button"><img id="brim" onclick="updateTotal('brim', true)" src="images/items/118.png" alt="Brimstone"><div class="hoverDiv">Brimstone</div></div>
+            <div class="button"><img id="lung" onclick="updateTotal('lung', true)" src="images/items/229.png" alt="Monstro's Lung"><div class="hoverDiv">Monstro's Lung</div></div>
             <div class="button"><img id="2020" onclick="updateTotal('2020', true)" src="images/items/245.png" alt="20/20"><div class="hoverDiv">20/20</div></div>  
             <div class="button"><img id="triple" onclick="updateTotal('triple', true)" src="images/items/2.png" alt="Inner Eye"><div class="hoverDiv">Inner Eye</div></div>  
             <div class="button"><img id="quad" onclick="updateTotal('quad', true)" src="images/items/153.png" alt="Mutant Spider"><div class="hoverDiv">Mutant Spider</div></div>
@@ -134,16 +135,20 @@
         
         <div class="calc-full">
             <h3>Character:</h3>
-            <select name="combo1" id="combo1" onchange="updateTotal()">
-                <option value="isaac" selected="selected" title="images/characters/isaac.png">Isaac</option>
-                <option value="maggy" title="images/characters/maggy.png">Maggy</option>
-                <option value="cain" title="images/characters/cain.png">Cain</option>
-                <option value="judas" title="images/characters/judas.png">Judas</option>
-                <option value="dead_baby" title="images/characters/bluebaby.png">???</option>
-                <option value="eve" title="images/characters/eve.png">Eve</option>
-                <option value="samson" title="images/characters/samson.png">Samson</option>
-                <option value="shadow" title="images/characters/shadow.png">Shadow</option>
-            </select>
+            
+            <div class="button"><img id="isaac" onclick="updateTotal('isaac', false)" src="images/characters/isaac.png"><div class="hoverDiv">Isaac</div></div>
+            <div class="button"><img id="maggy" onclick="updateTotal('maggy', false)" src="images/characters/maggy.png"><div class="hoverDiv">Maggy</div></div>
+            <div class="button"><img id="cain" onclick="updateTotal('cain', false)" src="images/characters/cain.png"><div class="hoverDiv">Cain</div></div>
+            <div class="button"><img id="judas" onclick="updateTotal('judas', false)" src="images/characters/judas.png"><div class="hoverDiv">Judas</div></div>
+            <div class="button"><img id="bluebaby" onclick="updateTotal('bluebaby', false)" src="images/characters/bluebaby.png"><div class="hoverDiv">BlueBaby</div></div>
+            <div class="button"><img id="eve" onclick="updateTotal('eve', false)" src="images/characters/eve.png"><div class="hoverDiv">Eve</div></div>
+            <div class="button"><img id="samson" onclick="updateTotal('samson', false)" src="images/characters/samson.png"><div class="hoverDiv">Samson</div></div>
+            <div class="button"><img id="lazarus" onclick="updateTotal('lazarus', false)" src="images/characters/lazarus.png"><div class="hoverDiv">Lazarus</div></div>
+            <div class="button"><img id="lazarus2" onclick="updateTotal('lazarus2', false)" src="images/characters/lazarus2.png"><div class="hoverDiv">Lazarus2</div></div>
+            <div class="button"><img id="lost" onclick="updateTotal('lost', false)" src="images/characters/lost.png"><div class="hoverDiv">Lost</div></div>
+            <div class="button"><img id="shadow" onclick="updateTotal('shadow', false)" src="images/characters/shadow.png"><div class="hoverDiv">Shadow</div></div>
+            
+            -->
         </div>
         
      </div>

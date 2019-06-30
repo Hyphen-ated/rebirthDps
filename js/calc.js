@@ -1,5 +1,7 @@
 oldDps = 9.55
 $("body select").msDropDown({visibleRows:10,roundedCorner:false});
+var character = 'isaac';
+toggleColor(character)
 var itemValue = {
 		"max": "0",
 		"martyr": "0",
@@ -39,6 +41,8 @@ var itemValue = {
         "hivemind": "0",
         "chempeel": "0",
         "bloodclot": "0",
+        "brim": "0",
+        "lung": "0",
         "2020": "0",
         "toothpicks": "0",
         "tornphoto": "0",
@@ -67,51 +71,69 @@ var itemValue = {
 		
 		"fetus": "0",
 		"tech": "0",
-		"knife": "0",
-		"brim": "0",
+		"knife": "0",		
 		"ipecac": "0",
 		"epic": "0"
 }
 function hasClass(element, cls) {
     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 }
-function updateTotal(img, bool) 
+function updateCharacter(name) {
+    if(name === character) return;
+    toggleColor(name);
+    toggleColor(character);
+    character = name;
+}
+
+
+function toggleColor(img) {
+    var property = document.getElementById(img);
+    var dark = document.getElementById('ht');
+    if (hasClass(dark, 'dark')) {
+        if (window.getComputedStyle(property).backgroundColor !== 'rgb(52, 52, 52)') 
+        {
+            property.style.backgroundColor = "rgb(52, 52, 52)";
+        }
+        else 
+        {
+            property.style.backgroundColor = "rgb(50, 200, 50)";
+        }
+    } else {
+        if (window.getComputedStyle(property).backgroundColor !== 'rgb(204, 204, 204)') 
+        {
+            property.style.backgroundColor = "rgb(204, 204, 204)";
+        }	
+        else 
+        {
+            property.style.backgroundColor = "rgb(50, 200, 50)";
+        }
+    }
+ }
+
+function updateTotal(img, isItem) 
 {
-	if (bool == true)
-	{
-		var property = document.getElementById(img);
-		var dark = document.getElementById('ht');
-		if (hasClass(dark, 'dark')) {
-			if (window.getComputedStyle(property).backgroundColor !== 'rgb(52, 52, 52)') 
-			{
-				property.style.backgroundColor = "rgb(52, 52, 52)";
-			}
-			else 
-			{
-				property.style.backgroundColor = "rgb(50, 200, 50)";
-			}
-		} else {
-			if (window.getComputedStyle(property).backgroundColor !== 'rgb(204, 204, 204)') 
-			{
-				property.style.backgroundColor = "rgb(204, 204, 204)";
-			}	
-			else 
-			{
-				property.style.backgroundColor = "rgb(50, 200, 50)";
-			}
-		}
-	}
+	
 
 	var items = itemValue;
+    
+    if (isItem == false)
+	{
+        toggleColor(character);
+        toggleColor(img);
+        character = img;
+	} else {
+        toggleColor(img)
+        if (items[img] == 0)
+        {
+            items[img] = 1;
+        }
+        else
+        {
+            items[img] = 0;
+        }
+    }
 	
-	if (items[img] == 0)
-	{
-		items[img] = 1;
-	}
-	else
-	{
-		items[img] = 0;
-	}
+	
 
 	var v2 = 0;
 	var infoText = "";
@@ -212,11 +234,12 @@ function updateTotal(img, bool)
 	}
     
 	var v3 = 0;
-	if ($("#combo1").val() == "cain") v3 = 0.2;
-	if ($("#combo1").val() == "judas") v3 = 0.35;
-	if ($("#combo1").val() == "dead_baby") v3 = 0.05;
-	if ($("#combo1").val() == "eve") v3 = -0.25;
-    if ($("#combo1").val() == "shadow") v3 = 1.0;
+	if (character == "cain") v3 = 0.2;
+	if (character == "judas") v3 = 0.35;
+	if (character == "bluebaby") v3 = 0.05;
+	if (character == "eve") v3 = -0.25;
+    if (character == "lazarus2") v3 = 0.2;
+    if (character == "shadow") v3 = 1.0;
 	
 	v2 *= 1 + v3;
 	
@@ -352,7 +375,7 @@ function updateTotal(img, bool)
 	if(items['smb'] === 1) delayMod += 0.2;
     if(items['screw'] === 1) delayMod += 0.5;
     if(items['scythes'] === 1) delayMod -= 0.3;
-	if($("#combo1").val() == "samson") delayMod -= 0.25;
+	if(character == "samson") delayMod -= 0.25;
 	
 	delayMod += document.getElementById("pillsUp").value * 0.7 * 0.5;
 	delayMod -= document.getElementById("pillsDown").value * 0.7 * 0.4;
@@ -382,6 +405,10 @@ function updateTotal(img, bool)
     if(items['capricorn'] === 1) delay -= 1;
     if(items['pisces'] === 1) delay -= 1;
 	
+    if(items['lung'] === 1 && items['brim'] !== 1) {
+        delay *= 4.3;
+    }
+    
     if(items['chocolate'] === 1) delay *= 2.5;
 	
 	delay += 1;
@@ -403,28 +430,16 @@ function updateTotal(img, bool)
         var dps = rof * v2;
     } else {
         var rof = 30 / delay;	
-        if(items['tech2'] === 1) rof = 10;
         
         var dps = rof * v2;
-        if(items['quad'] === 1) {
-           dps *= 4;
-           rof *= 4;
-        }
-        else if (items['triple'] === 1) {
-           dps *= 3;
-           rof *= 3;
-        } 
-        else if (items['2020'] === 1) {
-            dps *= 2;
-            rof *= 2;
-        }
-           
-        if (items['epic'] == 1) {
-            delay = 10;
-            rof = 0.77;
-            dps = rof * v2;
-            $('#infotext').removeClass('fade');
-        }
+        shotcount = 1;
+        if(items['lung'] === 1) shotcount = 13;
+        else if(items['quad'] === 1) shotcount = 4;
+        else if (items['triple'] === 1) shotcount = 3;
+        else if (items['2020'] === 1) shotcount = 2;
+       
+        dps *= shotcount;
+        rof *= shotcount;             
     }
     
     if(items['guppy'] == 1) {
